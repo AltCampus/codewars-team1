@@ -13,6 +13,8 @@ mongoose.connect('mongodb://localhost/codewars', {useNewUrlParser: true}, (err) 
   err ? console.log('db not connected') : console.log('db connected')
 });
 
+require('./modules/passport');
+
 mongoose.set('useCreateIndex', true);
 
 var indexRouter = require('./routes/index');
@@ -36,13 +38,6 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use(session({
-  secret: 'we are devs',
-  resave: false,
-  saveUninitialized: true,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
-}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

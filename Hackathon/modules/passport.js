@@ -1,7 +1,6 @@
 const passport = require('passport');
 var GitHubStrategy = require('passport-github').Strategy;
-var User = require('../models/User');
-var modules = require('../modules/database');
+var User = require('../models/user');
 var bcrypt = require('bcrypt');
 const keys = require('./keys');
 
@@ -44,4 +43,12 @@ passport.use(new GitHubStrategy({
 	)
 );
 
-module.exports = router;
+passport.serializeUser(function(user, done) {
+	done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+	User.findById(id, function(err, user) {
+		done(err, user);
+	});
+});
