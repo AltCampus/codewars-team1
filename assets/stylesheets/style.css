@@ -165,7 +165,23 @@ a {
 
 #logo-img {
   height: 4rem;
+  filter: opacity(90%);
 }
+
+
+#logo-img:hover {
+  filter: opacity(100%);
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
 
 /* main */
 .wrapper {
@@ -199,8 +215,8 @@ a {
   border-left: 0.125rem solid #303133;
 }
 .table td {
-  padding: .5rem 1rem;
-  font-size: .9rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
   border-left: 0.125rem solid #303133;
 }
 
@@ -246,22 +262,21 @@ login page
   border-radius: 4px;
 }
 .input-row:focus {
-  outline: #FFFFFF;
+  outline: #ffffff;
 }
 .input-row:hover {
   background: #1e1f20;
 }
 .input-row i {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 12px;
 }
 .input {
   background: transparent;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .input:focus {
   outline: none;
- 
 }
 /* Github button */
