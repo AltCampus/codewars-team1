@@ -4,7 +4,7 @@ var User = require('../models/user');
 
 
 router.get('/', (req, res , next) => {
-  res.send('logged in')
+  res.render('dashboard')
 })
 
 router.get('/register', (req, res , next) => {
