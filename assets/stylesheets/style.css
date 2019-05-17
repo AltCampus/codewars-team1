@@ -64,10 +64,39 @@ body {
   background-color: rgba(0,0,0,0.2);
   width: 8rem;
   height: 2rem;
+  width: 90%;
 }
 /* Logo Section */
 .header-two {
   font-size: 2.7rem;
   color: white;
+}
+.input-row {
+  background: #303133;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 7px;
+  text-align: left;
+  border-radius: 4px;
+}
+.input-row:focus {
+  outline: #FFFFFF;
+}
+.input-row:hover {
+  background: #1e1f20;
+}
+.input-row i {
+  color: #FFFFFF;
+  font-size: 12px;
+}
+.input {
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+}
+.input:focus {
+  outline: none;
+ 
 }
 /* Github button */
