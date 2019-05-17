@@ -50,3 +50,14 @@ table {
 body {
     background-color: #303133;
 }
+.container {
+  margin: 0 auto;
+  text-align: center;
+  width: 500px;
+}
+/* Logo Section */
+.header-two {
+  font-size: 2.7rem;
+  color: white;
+}
+/* Github button */
