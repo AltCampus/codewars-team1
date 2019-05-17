@@ -11,6 +11,9 @@ router.get('/register', (req, res , next) => {
   res.render('register')
 })
 
+router.get('/github', (req, res , next) => {
+  res.send('logged in with github')
+})
 
 router.post('/register', (req, res, next) => {
   console.log(req.body, "body ...................")

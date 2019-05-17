@@ -16,10 +16,6 @@ var userSchema = new Schema({
         type: String,
         required: true,
     },
-    github : {
-        name: String,
-        photo: String,
-    }
 },{timestamps: true});
 
 userSchema.pre('save', function(next) {
