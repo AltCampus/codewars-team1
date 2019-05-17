@@ -132,36 +132,34 @@ body {
   background-color: #303133;
 }
 
-
 /*
 ==========================================================
 starting second-page style
 ==========================================================
 */
 
-
-.header,
-.main {
-  font-family: "Lato", "Helvetica Neue", "Helvetica", Arial;
-
-  color: white;
-  font-weight: 300;
-}
-
+/* general */
 a {
   text-decoration: none;
   color: inherit;
 }
 
+.header,
+.main {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Arial;
+  color: white;
+  font-weight: 300;
+}
+
+/* header */
 .header {
+  background-color: #222222;
+  z-index: 10;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
-  background-color: rgba(0, 0, 0, 0.1);
-  color: #ecb613;
-
+  color: #white;
   padding: 1rem 3rem;
 }
 
@@ -169,22 +167,35 @@ a {
   height: 4rem;
 }
 
-.table {
-  width: 80%;
-  margin: 10rem auto;
+/* main */
+.wrapper {
+  width: 70%;
+  margin: 4rem auto;
+}
+.heading {
+  font-size: 5rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+.heading .yellow {
+  color: #ecb613;
+  font-weight: 500;
 }
 
+.table {
+  width: 100%;
+}
 .table th {
   background-color: rgba(126, 126, 126, 0.24);
   padding: 0.5rem 1rem;
   color: white;
-  border-left: 2px solid #303133;
+  font-size: .9rem;
+  font-weight: 300;
+  border-left: 0.125rem solid #303133;
 }
-
 .table tr {
-  height: 20px;
+  height: 1.25rem;
 }
-
 
 /* 
 ========================================================
@@ -201,8 +212,8 @@ login page
   background-color: #262729;
 }
 .login-btn {
-  color: #BB432C;
-  background-color: rgba(0,0,0,0.2);
+  color: #bb432c;
+  background-color: rgba(0, 0, 0, 0.2);
   width: 8rem;
   height: 2rem;
 }
