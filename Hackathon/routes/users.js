@@ -1,9 +1,34 @@
 var express = require('express');
 var router = express.Router();
+var User = require('../models/user');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+
+router.get('/', (req, res , next) => {
+  res.send('logged in')
+})
+
+router.get('/register', (req, res , next) => {
+  res.render('register')
+})
+
+
+router.post('/register', (req, res, next) => {
+  console.log(req.body, "body ...................")
+  User.findOne({email: req.body.email}, (err, user) => {
+    if(err) return next(err)
+    if(user) {
+      console.log("user exist...")
+    }
+    User.create({
+        username:req.body.username,
+				email:req.body.email,
+				password:req.body.password
+    }, (err, user) => {
+      if(err) return next(err);
+      console.log('registration successful')
+      res.status(400).redirect('/');
+    }) 
+    })
+})
 
 module.exports = router;

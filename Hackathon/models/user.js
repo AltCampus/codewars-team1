@@ -2,21 +2,19 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
 
-
 var userSchema = new Schema({
     email: {
         type: String,
         required: [true, "Email is Required"],
         unique: true,
     },
-    strategies: [String],
     username: {
         type: String,
         required: true,
     },
     password: {
         type: String,
-        require: true,
+        required: true,
     },
     github : {
         name: String,
@@ -36,4 +34,5 @@ userSchema.methods.validatePassword = function(password){
 }
 
 var User = mongoose.model('User', userSchema)
+
 module.exports = User;
