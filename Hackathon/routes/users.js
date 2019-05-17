@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+const fetch = require('node-fetch');
 
 
 router.get('/', (req, res , next) => {
@@ -12,7 +13,7 @@ router.get('/register', (req, res , next) => {
 })
 
 router.get('/github', (req, res , next) => {
-  res.send('logged in with github')
+  res.render('dashboard')
 })
 
 router.post('/register', (req, res, next) => {
@@ -25,11 +26,18 @@ router.post('/register', (req, res, next) => {
     User.create({
         username:req.body.username,
 				email:req.body.email,
-				password:req.body.password
+        password:req.body.password,
+        codewars: req.body.codewars
     }, (err, user) => {
       if(err) return next(err);
       console.log('registration successful')
       res.status(400).redirect('/');
+
+      // saving data in an object for codewars
+      fetch(`https://www.codewars.com/api/v1/users/${req.body.username}`).then(res => res.json()).then(data => {
+        user.codewars = data;
+        user.save();
+      })
     }) 
     })
 })
