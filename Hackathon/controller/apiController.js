@@ -4,7 +4,7 @@ module.exports = {
 	All_Users: function (req, res, next) {
 		User.find({}, (err, users) => {
 			if (err) return next(err);
-			res.json(users);
+            res.json(users);
 		})
     }
 }

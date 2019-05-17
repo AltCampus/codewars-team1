@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var newdata;
 const fetch = require('node-fetch');
 
 
@@ -35,6 +36,8 @@ router.post('/register', (req, res, next) => {
 
       // saving data in an object for codewars
       fetch(`https://www.codewars.com/api/v1/users/${req.body.username}`).then(res => res.json()).then(data => {
+        newdata = data;
+        console.log(newdata)
         user.codewars = data;
         user.save();
       })
