@@ -1,8 +1,6 @@
 const passport = require('passport');
 var GitHubStrategy = require('passport-github').Strategy;
 var User = require('../models/User');
-var modules = require('../modules/database');
-var bcrypt = require('bcrypt');
 const keys = require('./keys');
 
 
@@ -16,6 +14,7 @@ passport.use(new GitHubStrategy({
 	//check for existing author from profile into local database
 	// console.log(profile)
 	User.findOne({email: profile.emails[0].value}, (err, currentUser) => {
+			console.log(profile)
 		if(currentUser) {
 			if(currentUser.strategies.includes(profile.provider)) {
 				console.log(profile.provider, 'provider check')
@@ -44,4 +43,12 @@ passport.use(new GitHubStrategy({
 	)
 );
 
-module.exports = router;
+passport.serializeUser((user, done) => {
+  	done(null, user.id);
+	});
+
+passport.deserializeUser((id, done) => {
+	User.findById(id, (err, user) => {
+		done(null, user)
+	})
+});
