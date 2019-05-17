@@ -184,17 +184,30 @@ a {
 
 .table {
   width: 100%;
+  text-align: left;
 }
 .table th {
   background-color: rgba(126, 126, 126, 0.24);
   padding: 0.5rem 1rem;
   color: white;
-  font-size: .9rem;
-  font-weight: 300;
+  font-size: 1rem;
+  font-weight: 400;
   border-left: 0.125rem solid #303133;
 }
-.table tr {
-  height: 1.25rem;
+.table tr:nth-child(even) {
+  background-color: rgba(128, 128, 128, 0.062);
+  border-left: 0.125rem solid #303133;
+}
+.table td {
+  padding: .5rem 1rem;
+  font-size: .9rem;
+  border-left: 0.125rem solid #303133;
+}
+
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 12px;
+  }
 }
 
 /* 
