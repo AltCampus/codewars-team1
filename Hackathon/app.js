@@ -3,24 +3,20 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+var session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
+mongoose.connect('mongodb://localhost/codewars', {useNewUrlParser: true}, (err) => {
+  err ? console.log('db not connected') : console.log('db connected')
+});
+
+mongoose.set('useCreateIndex', true);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-
-mongoose.connect("mongodb://localhost/codewars", {useNewUrlParser: true}, (err) => {
-  if (err){
-    console.log("error connecting to mongoose")
-  }
-  else {
-    console.log('mongoose connected')
-  }
-});
-mongoose.set('useCreateIndex', true)
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +27,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: 'we are devs',
+  resave: false,
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
