@@ -14,12 +14,8 @@ var userSchema = new Schema({
     },
     password: {
         type: String,
-        require: true,
+        required: true,
     },
-    github : {
-        name: String,
-        photo: String,
-    }
 },{timestamps: true});
 
 userSchema.pre('save', function(next) {
@@ -34,4 +30,5 @@ userSchema.methods.validatePassword = function(password){
 }
 
 var User = mongoose.model('User', userSchema)
+
 module.exports = User;

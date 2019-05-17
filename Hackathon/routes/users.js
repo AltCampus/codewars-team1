@@ -11,17 +11,9 @@ router.get('/register', (req, res , next) => {
   res.render('register')
 })
 
-
-// router.post('/register', (req, res, next) => {
-//     User.create(req.body, (err,result) => {
-//         if (err) return next(err);
-//         res.redirect('/');
-//     })
-// })
-2
-
-
-
+router.get('/github', (req, res , next) => {
+  res.send('logged in with github')
+})
 
 router.post('/register', (req, res, next) => {
   console.log(req.body, "body ...................")

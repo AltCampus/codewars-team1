@@ -1,16 +1,10 @@
 const router = require('express').Router()
 const passport = require('passport');
 
-router.get('/login', (req, res) => {
+
+router.get('/', (req, res) => {
 	res.send('using oauth')
 })
-
-// auth logout
-// router.get('/logout', (req, res) => {
-// 	// handle with passport
-// 	req.logout();
-// 	res.redirect('/');
-// })
 
 // authenticating user using github strategy
 router.get('/github', passport.authenticate('github', {

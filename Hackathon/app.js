@@ -2,12 +2,11 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var passport = require('passport');
-var logger = require('morgan');
-const mongoose = require('mongoose');
 var session = require('express-session');
+var passport = require('passport');
 const MongoStore = require('connect-mongo')(session);
-
+const mongoose = require('mongoose');
+var logger = require('morgan');
 
 mongoose.connect('mongodb://localhost/codewars', {useNewUrlParser: true}, (err) => {
   err ? console.log('db not connected') : console.log('db connected')
@@ -39,10 +38,14 @@ app.use(session({
 }))
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+// Passport Middleware
+app.use(passport.initialize())
+app.use(passport.session())
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
