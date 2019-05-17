@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
+var SALT_WORK_FACTOR = 10;
 
 var userSchema = new Schema({
     email: {
@@ -19,14 +20,29 @@ var userSchema = new Schema({
 },{timestamps: true});
 
 userSchema.pre('save', function(next) {
-    // hash password using bcrypt.hashing
-    this.password = bcrypt.hashSync(this.password, 10);
-    return next();
-})
+	var user = this;
+	if(!user.isModified('password')) return next();
 
-userSchema.methods.validatePassword = function(password){
-    // compare password using bcrypt.compareSync
-    return bcrypt.compareSync('password', this.password)
+	//generate a salt
+	bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+	    if(err) return next(err);
+
+		//hash the password along with new SAlt
+		bcrypt.hash(user.password, salt, function(err, hash) {
+			if(err) return next(err);
+
+			//override the clearText password with the hashed one
+			user.password = hash;
+			next();
+		});
+	});
+});
+
+userSchema.methods.comparePassword = function(candidatePassword, cb) {
+	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+		if(err) return cb(err);
+		cb(null, isMatch);
+	});
 }
 
 var User = mongoose.model('User', userSchema)
