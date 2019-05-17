@@ -184,3 +184,31 @@ a {
 .table tr {
   height: 20px;
 }
+
+
+/* 
+========================================================
+login page
+========================================================
+*/
+.toblock {
+  display: block;
+}
+.container {
+  margin: 0 auto;
+  text-align: center;
+  width: 400px;
+  background-color: #262729;
+}
+.login-btn {
+  color: #BB432C;
+  background-color: rgba(0,0,0,0.2);
+  width: 8rem;
+  height: 2rem;
+}
+/* Logo Section */
+.header-two {
+  font-size: 2.7rem;
+  color: white;
+}
+/* Github button */
