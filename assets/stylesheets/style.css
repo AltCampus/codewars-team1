@@ -50,10 +50,20 @@ table {
 body {
     background-color: #303133;
 }
+.toblock {
+  display: block;
+}
 .container {
   margin: 0 auto;
   text-align: center;
-  width: 500px;
+  width: 400px;
+  background-color: #262729;
+}
+.login-btn {
+  color: #BB432C;
+  background-color: rgba(0,0,0,0.2);
+  width: 8rem;
+  height: 2rem;
 }
 /* Logo Section */
 .header-two {
