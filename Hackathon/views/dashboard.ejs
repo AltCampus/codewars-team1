@@ -22,7 +22,7 @@
             <!-- logo starts -->
             <div class="logo">
                 <a href="/">
-                    <img id="logo-img" src="./assets/images/logo.png" alt="code-wars logo">
+                    <img id="logo-img" src="./../public/images/logo.png" alt="code-wars logo">
                 </a>
             </div>
             <!-- logo ends -->
@@ -48,59 +48,25 @@
                 <h1 class="heading">
                     User <span class="yellow">stats</span> 
                 </h1>
-                
-                <!-- table starts -->
-                <table class="table">
-                
-                    <!-- table head starts -->
-                    <thead>
-                        <tr>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Score</th>
-                            <th>Questions solved</th>
-                        </tr>
-                    </thead>
-                    <!-- table head ends -->
-                
-                    <!-- table body starts -->
-                    <tbody>
-                        <tr>
-                            <td>
-                                Amit
-                            </td>
-                            <td>
-                                amitg01@gmail.com
-                            </td>
-                            <td>
-                                1kyu
-                            </td>
-                            <td>
-                                6
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Aman
-                            </td>
-                            <td>
-                                amanregu@gmail.com
-                            </td>
-                            <td>
-                                2kyu
-                            </td>
-                            <td>
-                                6
-                            </td>
-                        </tr>
-                        <tr></tr>
-                        <tr></tr>
-                    </tbody>
-                    <!-- table body ends -->
-                
-                </table>
-                <!-- table ends -->
-            </div>
+
+                    <table class = "table">
+                        <tbody>
+                            <tr>
+                            <th>Username</th><th>Email</th><th>Honor</th><th>Questions Solved</th>
+                            </tr>
+                        
+                            <% for (var i = 0; i < data.length;  i++) { %>
+                            <tr>
+                            <td><%= data[i].codewars.username %></td>
+                            <td><%= data[i].email %></td>
+                            <td><%= data[i].codewars.honor %></td>
+                            <td><%= data[i].codewars.codeChallenges.totalCompleted %></td>
+                            </tr>    
+                            <% } %>
+                    <!-- table body ends -->    
+                        </tbody>
+                    <!-- table ends -->
+                     </table>
             <!-- wrapper ends -->
         </main>
         <!-- main ends -->
@@ -109,3 +75,4 @@
     </body>
 
 </html>
+

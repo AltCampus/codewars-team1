@@ -1,6 +1,16 @@
 var User = require('../models/user');
 var fetch = require('node-fetch');
-var newdata;
+let checkData;
+
+
+const fetchAPI =(cb)=>{
+	fetch('http://localhost:3000/api/users').then(res => res.json()).then(data => {
+			cb(data)
+			// data.forEach(newdata => {
+					
+			// });
+	})
+} 
 
 module.exports = {
 	// Render register page
@@ -10,15 +20,31 @@ module.exports = {
 
 	dashboard: (req, res, next) => {
 		res.render('dashboard');
+		fetchAPI((data) =>{
+			res.render('dashboard',{data:data})
+		})
 	},
 
 	// POST on user registration
 	addUser: (req, res, next) => {
-		console.log(req.body, "body ...................")
+		var {email, username, password} = req.body;
+		if(!email || !username || !password) {
+			res.send('Please submit all the required fields');
+		}
+		fetch(`https://www.codewars.com/api/v1/users/${req.body.username}`).then(res => res.json()).then(data => {
+					checkData = data;
+					if (checkData.success === 'false') {
+						return res.send("User Doesn't Exist")
+					}
+					console.log(checkData, '..........this is newdata within FIRST FETCH');
+				})
+			// 	if (checkData.success === 'false') {
+			// 	return res.send("Codewars User doesn't exist");
+			// }
 		User.findOne({email: req.body.email}, (err, user) => {
 	    if(err) return next(err);
 	    if(user) {
-	      console.log("user exist...");
+	      res.send('A user is already registered with this email address. Please try with a different email address.')
 	    }
 	    User.create({
 	        username:req.body.username,
@@ -32,10 +58,10 @@ module.exports = {
 
 	      // saving data in an object for codewars
 	      fetch(`https://www.codewars.com/api/v1/users/${req.body.username}`).then(res => res.json()).then(data => {
-	        newdata = data;
-	        console.log(newdata, '..........this is newdata within fetch');
-	        user.codewars = data;
-	        user.save();
+					let newdata = data;
+					console.log(newdata, '..........this is newdata within SECOND FETCH');
+					user.codewars = data;
+					user.save();
 	      })
 	    }) 
 	  })
