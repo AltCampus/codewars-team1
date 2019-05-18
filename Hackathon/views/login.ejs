@@ -8,39 +8,45 @@
   <body>
     <!-- Parent Container -->
     <div class="container">
-      <section class="main-logo-section">
-        <img class="main-logo-image" src="http://localhost:3000/images/logo.png" alt="codewars">
-      </section>
-      <section>
-        <form action="/" method="POST">
-          <a href="/auth/github/">
-            <button class="login-btn" ><i class="fab fa-github"></i>GITHUB LOGIN</button>
-          </a>
-        </form>
-      </section>
       <div>
-        <p>-or-</p>
+        <section class="main-logo-section">
+          <img class="main-logo-image" src="http://localhost:3000/images/logo.png" alt="codewars">
+        </section>
+        <div>
+          <div class="">
+            <section>
+              <form action="/" method="POST">
+                <a href="/auth/github/">
+                  <button class="login-btn" ><i class="fab fa-github"></i> GITHUB LOGIN</button>
+                </a>
+              </form>
+            </section>
+          </div>
+          <!-- <p>-or-</p> -->
+        </div>
+        <form action="/" method="POST">
+          <div class="input-row">
+            <i class="fas fa-envelope"></i> 
+            <input type="email" name="email" placeholder="email">
+          </div>
+          <div class="input-row">
+            <i class="fas fa-user-tie"></i>
+            <input type="text" name="username" id="" placeholder="username">
+          </div>
+          <div class="input-row">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="password" id="" placeholder="password">
+          </div>
+          <div class="input-row">
+            <button class="login-btn" type="submit">Sign In</button>
+          </div>
+        </form>
+        <section>
+          <div class="">
+            <a href="/users/register" class="">Sign Up</a>
+          </div>
+        </section>
       </div>
-      <form action="/" method="POST">
-        <div class="input-row">
-          <i class="fas fa-envelope"></i> 
-          <input type="email" name="email" placeholder="email">
-        </div>
-        <div class="input-row">
-          <i class="fas fa-lock"></i>
-          <input type="text" name="username" id="" placeholder="username">
-        </div>
-        <div class="input-row">
-          <i class="fas fa-lock"></i>
-          <input type="password" name="password" id="" placeholder="password">
-        </div>
-        <div class="input-row">
-          <button class="login-btn" type="submit">log in</button>
-        </div>
-      </form>
-      <section>
-        <a href="/users/register" class="toblock">Sign Up</a>
-      </section>
     </div>
 </body>
 </html>

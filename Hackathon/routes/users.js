@@ -7,7 +7,6 @@ var userController = require('../controllers/userController');
 var authController = require('../controllers/authController');
 
 
-
 router.get('/dashboard', authController.isUserLogged, userController.dashboard)
 
 router.get('/register', userController.register)

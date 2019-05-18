@@ -140,10 +140,11 @@ a {
 .container {
   margin: 30px auto;
   text-align: center;
-  width: 320px;
+  width: 440px;
   background-color: #262729;
   box-sizing: border-box;
   border-radius: 5px;
+  /*padding: 10px;*/
 }
 .margin-property {
   margin-top: 40px;
@@ -155,12 +156,18 @@ a {
 .login-btn {
   color: #BB432C;
   background-color: rgba(0,0,0,0.2);
-  width: 90%;
+  width: 100%;
   height: 2rem;
   border: 0px;
   border-radius: 5px;
   transition: 0.2s;
   cursor: pointer;
+}
+.github-btn{
+  margin-top: 70%;
+  margin-right: 20px;
+  width: 200px;
+  font-size: 1rem;
 }
 .login-btn:hover {
   background-color: #0B0C0C;
@@ -172,7 +179,7 @@ a {
   padding-bottom: 70px;
 }
 .main-logo-image {
-  padding-top: 40px;
+  padding: 30px 0;
 }
 .main-logo-section a {
   text-decoration: none;
@@ -185,12 +192,13 @@ a {
 /* Form */
 .input-row {
   background: #303133;
-  width: 90%;
+  /*width: 100%;*/
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin: 20px;
   padding: 7px;
   text-align: left;
   border-radius: 4px;
+  padding: 20px;
 }
 .input-row:focus {
   outline: #FFFFFF;
@@ -202,10 +210,16 @@ a {
   color: #FFFFFF;
   font-size: 12px;
 }
-.input {
-  background: transparent;
+input {
+  background: #fff;
+  width: 340px;
+  height: 40px;
   border: none;
   color: #FFFFFF;
+  padding: 10px;
+  font-size: 0.9rem;
+  outline: none;
+  border-radius: 5px;
 }
 .input:focus {
   outline: none;
@@ -220,4 +234,24 @@ a {
 }
 .grey-text:hover {
   color: lightblue;
+}
+
+/* Register Form*/
+
+.register-wrapper{
+  margin: 10px auto;
+  width: 400px;
+  text-align: center;
+  background-color: #262729;
+  padding: 40px 0;
+  /*background: black;*/
+}
+.register-form{
+  margin: 10px;
+  padding: 10px;
+}
+.register-btn{
+  margin: 20px 0;
+  padding: 10px;
+  font-size: 1rem;
 }
