@@ -16,6 +16,9 @@ var userSchema = new Schema({
         type: String,
         required: true,
     },
+    codewars: {
+        type: Object
+    },
 },{timestamps: true});
 
 userSchema.pre('save', function(next) {

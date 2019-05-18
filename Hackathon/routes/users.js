@@ -25,7 +25,8 @@ router.post('/register', (req, res, next) => {
     User.create({
         username:req.body.username,
 				email:req.body.email,
-				password:req.body.password
+				password:req.body.password,
+        codewars:req.body.codewars
     }, (err, user) => {
       if(err) return next(err);
       console.log('registration successful')
