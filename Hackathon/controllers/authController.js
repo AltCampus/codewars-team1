@@ -7,11 +7,11 @@ module.exports = {
 				if(err) console.log(err)
 				req.user = user;
 				res.locals.user = user;
-				next()
+				next();
 			})
 		}
 		else {
-			res.redirect('/')
+			res.redirect('/');
 		}
 	},
 
@@ -26,7 +26,7 @@ module.exports = {
 		else{
 			req.user = null;
 			res.locals.user = null;
-			next()
+			next();
 		}
 	},
 

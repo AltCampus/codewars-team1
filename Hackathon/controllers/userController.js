@@ -1,5 +1,6 @@
 var User = require('../models/user');
 var fetch = require('node-fetch');
+var newdata;
 
 module.exports = {
 	// Render register page
@@ -15,9 +16,9 @@ module.exports = {
 	addUser: (req, res, next) => {
 		console.log(req.body, "body ...................")
 		User.findOne({email: req.body.email}, (err, user) => {
-	    if(err) return next(err)
+	    if(err) return next(err);
 	    if(user) {
-	      console.log("user exist...")
+	      console.log("user exist...");
 	    }
 	    User.create({
 	        username:req.body.username,
@@ -26,13 +27,13 @@ module.exports = {
 	        codewars: req.body.codewars
 	    }, (err, user) => {
 	      if(err) return next(err);
-	      console.log('registration successful')
-	      res.status(400).redirect('/');
+	      console.log('registration successful');
+	      res.status(201).redirect('/');
 
 	      // saving data in an object for codewars
 	      fetch(`https://www.codewars.com/api/v1/users/${req.body.username}`).then(res => res.json()).then(data => {
 	        newdata = data;
-	        console.log(newdata)
+	        console.log(newdata, '..........this is newdata within fetch')
 	        user.codewars = data;
 	        user.save();
 	      })

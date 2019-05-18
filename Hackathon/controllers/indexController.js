@@ -20,11 +20,9 @@ module.exports = {
 				// console.log('login success');
 	      req.session.userId = user._id;
 	      console.log('user authenticated successfully');
-				res.redirect('/users');
+				res.redirect('/users/dashboard');
 			});
 		});
 	},
-
-	
 }
 
