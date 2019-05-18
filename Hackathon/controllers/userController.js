@@ -1,6 +1,15 @@
 var User = require('../models/user');
 var fetch = require('node-fetch');
-var newdata;
+
+
+const fetchAPI =(cb)=>{
+	fetch('http://localhost:3000/api/users').then(res => res.json()).then(data => {
+			cb(data)
+			// data.forEach(newdata => {
+					
+			// });
+	})
+} 
 
 module.exports = {
 	// Render register page
@@ -9,7 +18,9 @@ module.exports = {
 	},
 
 	dashboard: (req, res, next) => {
-		res.render('dashboard')
+		fetchAPI((data) =>{
+			res.render('dashboard',{data:data})
+		})
 	},
 
 	// POST on user registration
@@ -32,7 +43,7 @@ module.exports = {
 
 	      // saving data in an object for codewars
 	      fetch(`https://www.codewars.com/api/v1/users/${req.body.username}`).then(res => res.json()).then(data => {
-	        newdata = data;
+	        let newdata = data;
 	        console.log(newdata, '..........this is newdata within fetch')
 	        user.codewars = data;
 	        user.save();
