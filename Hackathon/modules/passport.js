@@ -15,15 +15,15 @@ passport.use(new GitHubStrategy({
 	//check for existing author from profile into local database
 	// console.log(profile)
 	Github.findOne({email: profile.emails[0].value}, (err, currentUser) => {
-			console.log(profile)
+			console.log(profile);
 		if(currentUser) {
 			if(currentUser.strategies.includes(profile.provider)) {
-				console.log(profile.provider, 'provider check')
-				return done(null, currentUser)
+				console.log(profile.provider, 'provider check');
+				return done(null, currentUser);
 			} else {
 				Github.findOneAndUpdate({email: profile.emails[0].value }, {new: true}, (err, currentUser) => {
 					if(err) return done(err);
-					done(null, currentUser)
+					done(null, currentUser);
 				})
 			}
 		}
@@ -35,13 +35,12 @@ passport.use(new GitHubStrategy({
 					},
 				email: profile.emails[0].value,
 			}).save().then((newUser) => {
-				console.log('new User created:' + newUser)
-				done(null, newUser)
+				console.log('new User created:' + newUser);
+				done(null, newUser);
 			})
 		}
 		})
-	}
-	)
+	})
 );
 
 
@@ -51,6 +50,6 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((id, done) => {
 	Github.findById(id, (err, user) => {
-		done(null, user)
+		done(null, user);
 	})
 });

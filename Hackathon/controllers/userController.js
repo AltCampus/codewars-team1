@@ -5,11 +5,11 @@ var newdata;
 module.exports = {
 	// Render register page
 	register: (req, res , next) => {
-  	res.render('register')
+  	res.render('register');
 	},
 
 	dashboard: (req, res, next) => {
-		res.render('dashboard')
+		res.render('dashboard');
 	},
 
 	// POST on user registration
@@ -33,7 +33,7 @@ module.exports = {
 	      // saving data in an object for codewars
 	      fetch(`https://www.codewars.com/api/v1/users/${req.body.username}`).then(res => res.json()).then(data => {
 	        newdata = data;
-	        console.log(newdata, '..........this is newdata within fetch')
+	        console.log(newdata, '..........this is newdata within fetch');
 	        user.codewars = data;
 	        user.save();
 	      })

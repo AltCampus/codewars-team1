@@ -3,7 +3,7 @@ var User = require('../models/user');
 module.exports = {
 	// render login page
 	showLogin: (req, res, next) => {
-		res.render('login')
+		res.render('login');
 	},
 
 	// post request on login
