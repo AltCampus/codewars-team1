@@ -1,4 +1,5 @@
 var User = require('../models/user');
+var fetch = require('node-fetch');
 
 module.exports = {
 	// Render register page
