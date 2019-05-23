@@ -1,0 +1,238 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
+  License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+* {
+  box-sizing: border-box;
+}
+/* CSS RESET ENDS */
+/* General Content */
+body {
+  background-color: #303133;
+}
+
+/*
+==========================================================
+starting second-page style
+==========================================================
+*/
+
+/* general */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header,
+.main {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Arial;
+  color: white;
+  font-weight: 300;
+}
+
+/* header */
+.header {
+  background-color: #222222;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 1rem 3rem;
+}
+
+#logo-img {
+  height: 4rem;
+  filter: opacity(90%);
+}
+
+
+#logo-img:hover {
+  filter: opacity(100%);
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+
+/* main */
+.wrapper {
+  width: 70%;
+  margin: 4rem auto;
+}
+.heading {
+  font-size: 5rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+.heading .yellow {
+  color: #ecb613;
+  font-weight: 500;
+}
+
+.table {
+  width: 100%;
+  text-align: left;
+}
+.table th {
+  background-color: rgba(126, 126, 126, 0.24);
+  padding: 0.5rem 1rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  border-left: 0.125rem solid #303133;
+}
+.table tr:nth-child(even) {
+  background-color: rgba(128, 128, 128, 0.062);
+  border-left: 0.125rem solid #303133;
+}
+.table td {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-left: 0.125rem solid #303133;
+}
+
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 12px;
+  }
+}
+.toblock {
+  display: block;
+}
+.toinlineblock {
+  display: inline-block;
+}
+.container {
+  margin: 30px auto;
+  text-align: center;
+  width: 320px;
+  background-color: #262729;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.margin-property {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.padding-property {
+  padding-bottom: 40px;
+}
+.login-btn {
+  color: #BB432C;
+  background-color: rgba(0,0,0,0.2);
+  width: 90%;
+  height: 2rem;
+  border: 0px;
+  border-radius: 5px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.login-btn:hover {
+  background-color: #0B0C0C;
+}
+/* Logo Section */
+.header-two {
+  font-size: 2.7rem;
+  color: white;
+  padding-bottom: 70px;
+}
+.main-logo-image {
+  padding-top: 40px;
+}
+.main-logo-section a {
+  text-decoration: none;
+}
+/* Github button */
+.towhite {
+  color: white;
+  padding: 1rem 0;
+}
+/* Form */
+.input-row {
+  background: #303133;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 7px;
+  text-align: left;
+  border-radius: 4px;
+}
+.input-row:focus {
+  outline: #ffffff;
+}
+.input-row:hover {
+  background: #1e1f20;
+}
+.input-row i {
+  color: #ffffff;
+  font-size: 12px;
+}
+.input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+}
+.input:focus {
+  outline: none;
+}
+/* Forget Section */
+.grey-text {
+  text-decoration: none;
+  color: grey;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.grey-text:hover {
+  color: lightblue;
+}
